@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Feng Huang AR</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=0.25, maximum-scale=0.25, user-scalable=no" />
 <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.5.4/dist/aframe-extras.min.js"></script>
 </head>
@@ -14,13 +14,30 @@
   xr-mode-ui="XRMode: ar">
 <a-assets timeout="10000">
 <a-asset-item id="eous" src="eous.glb"></a-asset-item>
+<a-asset-item id="hollow" src="hollow.glb"></a-asset-item>
 </a-assets>
  
   <a-entity
     gltf-model="#eous"
     animation-mixer="clip: *; loop: repeat"
     animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear"
-    position="0 1.5 -4"
+    position="-5 -1.5 -4"
+    scale="1 1 1"
+    rotation="0 0 0">
+<!-- animation-mixer = el aleteo de alas (viene dentro del modelo)
+         animation       = EL GIRO que acabamos de agregar:
+             · property: rotation  → anima la rotación
+             · to: 0 360 0         → gira 360° sobre el eje Y (vertical, como un carrusel)
+             · loop: true          → gira sin parar
+             · dur: 10000          → tarda 10 segundos en dar una vuelta completa
+             · easing: linear      → velocidad constante (sin acelerar ni frenar) -->
+</a-entity>
+
+   <a-entity
+    gltf-model="#hollow"
+    animation-mixer="clip: *; loop: repeat"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear"
+    position="5 -1.5 -4"
     scale="1 1 1"
     rotation="0 0 0">
 <!-- animation-mixer = el aleteo de alas (viene dentro del modelo)
