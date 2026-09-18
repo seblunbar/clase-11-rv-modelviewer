@@ -15,14 +15,16 @@
 <a-assets timeout="10000">
 <a-asset-item id="eous" src="eous.glb"></a-asset-item>
 <a-asset-item id="hollow" src="hollow.glb"></a-asset-item>
+<a-asset-item id="miyaboo" src="miyaboo.glb"></a-asset-item>
+<a-asset-item id="scp" src="scp.glb"></a-asset-item>
 </a-assets>
  
   <a-entity
     gltf-model="#eous"
     animation-mixer="clip: *; loop: repeat"
     animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear"
-    position="-5 -1.5 -4"
-    scale="0.1 0.1 0.1"
+    position="-5 -1.5 -5"
+    scale="0.5 0.5 0.5"
     rotation="0 0 0">
 <!-- animation-mixer = el aleteo de alas (viene dentro del modelo)
          animation       = EL GIRO que acabamos de agregar:
@@ -37,8 +39,40 @@
     gltf-model="#hollow"
     animation-mixer="clip: *; loop: repeat"
     animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear"
-    position="5 -1.5 -4"
-    scale="0.1 0.1 0.1"
+    position="5 -1.5 -5"
+    scale="0.5 0.5 0.5"
+    rotation="0 0 0">
+<!-- animation-mixer = el aleteo de alas (viene dentro del modelo)
+         animation       = EL GIRO que acabamos de agregar:
+             · property: rotation  → anima la rotación
+             · to: 0 360 0         → gira 360° sobre el eje Y (vertical, como un carrusel)
+             · loop: true          → gira sin parar
+             · dur: 10000          → tarda 10 segundos en dar una vuelta completa
+             · easing: linear      → velocidad constante (sin acelerar ni frenar) -->
+</a-entity>
+
+   <a-entity
+    gltf-model="#miyaboo"
+    animation-mixer="clip: *; loop: repeat"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear"
+    position="5 -1.5 5"
+    scale="0.5 0.5 0.5"
+    rotation="0 0 0">
+<!-- animation-mixer = el aleteo de alas (viene dentro del modelo)
+         animation       = EL GIRO que acabamos de agregar:
+             · property: rotation  → anima la rotación
+             · to: 0 360 0         → gira 360° sobre el eje Y (vertical, como un carrusel)
+             · loop: true          → gira sin parar
+             · dur: 10000          → tarda 10 segundos en dar una vuelta completa
+             · easing: linear      → velocidad constante (sin acelerar ni frenar) -->
+</a-entity>
+
+   <a-entity
+    gltf-model="#scp"
+    animation-mixer="clip: *; loop: repeat"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear"
+    position="5 -1.5 5"
+    scale="0.5 0.5 0.5"
     rotation="0 0 0">
 <!-- animation-mixer = el aleteo de alas (viene dentro del modelo)
          animation       = EL GIRO que acabamos de agregar:
