@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Model Viewer AR - VR</title>
-  <meta name="description" content="Model Viewer (VR / AR) • A-Frame">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@gh-pages/examples/js/info-message.js"></script>
-  <script src="animation-mixer.js"></script>
-  <script src="ar-shadows.js"></script>
-  <script src="model-viewer.js"></script>
-  <script src="background-gradient.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@gh-pages/examples/js/remix-dropdown.js"></script>
-  </head>
+<meta charset="utf-8">
+<title>Feng Huang AR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.5.4/dist/aframe-extras.min.js"></script>
+</head>
 <body>
-
+ 
 <a-scene
-  info-message="htmlSrc: #messageText"
-  model-viewer="gltfModel: #eous; title: eous"
-  xr-mode-ui="XRMode: xr">
-  <a-assets timeout="10000">
-    <!--
-      Model source: https://sketchfab.com/3d-models/triceratops-d16aabe33dc24f8ab37e3df50c068265
-      Model author: https://sketchfab.com/VapTor
-      Model license: Sketchfab Standard
-    -->
-    <a-asset-item id="eous"
-      src="eous.glb"
-      response-type="arraybuffer"></a-asset-item>
-
-    <img id="shadow" src="shadow.png">
-    <a-asset-item id="messageText" src="message.html"></a-asset-item>
-  </a-assets>
+  webxr="optionalFeatures: hit-test, local-floor, dom-overlay"
+  xr-mode-ui="XRMode: ar">
+<a-assets timeout="10000">
+<a-asset-item id="eous" src="eous.glb"></a-asset-item>
+</a-assets>
+ 
+  <a-entity
+    gltf-model="#eous"
+    animation-mixer="clip: *; loop: repeat"
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear"
+    position="0 1.5 -4"
+    scale="1 1 1"
+    rotation="0 0 0">
+<!-- animation-mixer = el aleteo de alas (viene dentro del modelo)
+         animation       = EL GIRO que acabamos de agregar:
+             · property: rotation  → anima la rotación
+             · to: 0 360 0         → gira 360° sobre el eje Y (vertical, como un carrusel)
+             · loop: true          → gira sin parar
+             · dur: 10000          → tarda 10 segundos en dar una vuelta completa
+             · easing: linear      → velocidad constante (sin acelerar ni frenar) -->
+</a-entity>
+ 
+  <a-light type="ambient" intensity="0.9"></a-light>
+<a-light type="directional" intensity="0.6" position="1 3 2"></a-light>
 </a-scene>
 </body>
 </html>
